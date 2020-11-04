@@ -233,7 +233,9 @@ Fliplet.InteractiveMap.component('add-markers', {
 
       Fliplet.Studio.emit('widget-mode', 'normal')
       this.$nextTick(() => {
-        this.initDataSourceProvider(this.dataSourceId)
+        if (!this.dataSourceProvider) {
+          this.initDataSourceProvider(this.dataSourceId)
+        }
       })
     },
     editDataSource() {
