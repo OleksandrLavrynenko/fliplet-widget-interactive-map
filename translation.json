@@ -2,6 +2,17 @@
   "widgets": {
     "interactiveMap": {
       "title": "MAPS",
+      "search": {
+        "title": "SEARCH",
+        "placeholder": "Type to search",
+        "actions": {
+          "clear": "Clear"
+        },
+        "markerNotFound": {
+          "title": "We couldn't find a marker matching the name or map: <strong ref=\"searchValue\"></strong>.",
+          "instruction": "Please try a different search value."
+        }
+      },
       "errorToast": {
         "markersWithoutInformation": "Some markers have missing information and they may not be shown.",
         "mapNotFound": "The map couldn't be found. Please make sure the maps are configured correctly.",
