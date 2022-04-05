@@ -8,11 +8,9 @@ Vue.filter('auth', function (value) {
 
 Fliplet.Widget.instance('interactive-map', function(widgetData) {
   var selector = '[data-interactive-map-id="' + widgetData.id + '"]';
-
-  $(this).translate();
-
   const $interactiveMap = new Vue({
     el: $(selector)[0],
+    i18n: Fliplet.Locale.plugins.vue(),
     data() {
       return {
         containsData: !!(widgetData.maps && widgetData.maps.length),
@@ -43,8 +41,7 @@ Fliplet.Widget.instance('interactive-map', function(widgetData) {
       }
     },
     watch: {
-      searchValue(newVal) {
-        this.$refs.searchValue.innerHTML = newVal;
+      searchValue() {
         this.noSearchResults = false
 
         if (this.searchTimeout) {

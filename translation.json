@@ -9,7 +9,7 @@
           "clear": "Clear"
         },
         "markerNotFound": {
-          "title": "We couldn't find a marker matching the name or map: <strong ref=\"searchValue\"></strong>.",
+          "title": "We couldn't find a marker matching the name or map: <strong>{{searchValue}}</strong>.",
           "instruction": "Please try a different search value."
         }
       },
