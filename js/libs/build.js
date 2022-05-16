@@ -93,7 +93,7 @@ Fliplet.Widget.instance('interactive-map', function(widgetData) {
           // Check if markers have all the necessary info to be shown
           if (!this.validateMarkers(newMarkerData)) {
             Fliplet.UI.Toast({
-              message: 'Some markers have missing information and they may not be shown.'
+              message: T('widgets.interactiveMap.errorToast.markersWithoutInformation')
             })
           }
 
@@ -132,7 +132,7 @@ Fliplet.Widget.instance('interactive-map', function(widgetData) {
           // Check if there is a map to initialize
           if (!this.selectedMapData || !this.selectedMapData.id) {
             return Fliplet.UI.Toast({
-              message: 'The map couldn\'t be found. Please make sure the maps are configured correctly.'
+              message: T('widgets.interactiveMap.errorToast.mapNotFound')
             })
           }
 
@@ -254,7 +254,7 @@ Fliplet.Widget.instance('interactive-map', function(widgetData) {
 
           if (markerIndex === -1) {
             Fliplet.UI.Toast({
-              message: 'Map marker' + markerSelector + ' not found'
+              message: T('widgets.interactiveMap.errorToast.selectedMarkerNotFound', { markerSelector: markerSelector })
             })
           }
 
@@ -272,7 +272,7 @@ Fliplet.Widget.instance('interactive-map', function(widgetData) {
 
           if (mapIndex === -1) {
             Fliplet.UI.Toast({
-              message: 'Map' + (options.mapName ? ' "' + options.mapName + '"' : '') + ' not found'
+              message: T('widgets.interactiveMap.errorToast.selectedMapNotFound', { mapName: options.mapName ? '"' + options.mapName + '"' : '' })
             })
           }
 
@@ -328,10 +328,10 @@ Fliplet.Widget.instance('interactive-map', function(widgetData) {
             })
             .catch((error) => {
               Fliplet.UI.Toast({
-                message: 'Error loading data',
+                message: T('widgets.interactiveMap.errorToast.loadFailed.title'),
                 actions: [
                   {
-                    label: 'Details',
+                    label: T('widgets.interactiveMap.errorToast.loadFailed.label'),
                     action: function () {
                       Fliplet.UI.Toast({
                         html: error.message || Fliplet.parseError(error)
@@ -412,7 +412,7 @@ Fliplet.Widget.instance('interactive-map', function(widgetData) {
           || !this.markerXPositionColumn
           || !this.markerYPositionColumn) {
             return Fliplet.UI.Toast({
-              message: 'The data source or data source columns are misconfigured.'
+              message: T('widgets.interactiveMap.errorToast.dataSourceMisconfigured')
             })
           }
 
